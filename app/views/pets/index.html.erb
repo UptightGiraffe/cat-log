@@ -1,0 +1,27 @@
+<h1>Dale and Shuntai's Pets List</h1>
+
+<table width=600">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan=3>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |p| %>
+    <tr>
+      <td><%= p.name %></td>
+      <td><%= p.description %></td>
+      <td><%= link_to 'Show', pet_path(p) %></td>
+      <td><%= link_to 'Edit', edit_pet_path(p) %></td>
+      <td><%= link_to 'Delete', pet_path(p), method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+<%= link_to 'Add a new pet', new_pet_path %>
+</p>

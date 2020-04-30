@@ -1,0 +1,10 @@
+<h1>Showing Pets Details</h1>
+
+<p><strong>Name:</strong> <%= @pet.name %> </p>
+<p><strong>Description:</strong> <%= @pet.description%> </p>
+
+<p>
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Delete', pet_path, method: :delete, data: { confirm: "Are you sure?"} %> |
+<%= link_to 'Return home', pets_path %>
+</p>

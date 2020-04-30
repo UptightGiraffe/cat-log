@@ -1,0 +1,25 @@
+<% if @pet.errors.any? %>
+  <h2>Following error occured when saving new pets.</h2>
+  <ul>
+  <% @pet.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @pet, local: true do |f| %>
+  <p>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br/>
+    <%= f.text_area :description, size: "60x12"%>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
