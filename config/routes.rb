@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'pets#index'
+  root 'pages#home'
+  get 'about', to: 'pages#about'
   resources :pets
 
 end
