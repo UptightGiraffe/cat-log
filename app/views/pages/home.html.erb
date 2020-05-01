@@ -1,6 +1,12 @@
 <br>
-<h1>Home Page</h1>
+<h1>Our Beautiful Home</h1>
 <br>
+
+<p style="font-size:100px">
+  <% 3.times do %>
+    <%= render 'emoji' %>
+  <% end %>
+</p>
 
 <p>
   <%= link_to 'Pets list', pets_path %> |

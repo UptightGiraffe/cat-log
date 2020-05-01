@@ -1,6 +1,6 @@
 <br>
 <div class="container">
-  <h1>Dale and Shuntai's Pets List</h1>
+  <h1>Dale and Tai's Cat Logs</h1>
 </div>
 <br>
 
@@ -17,7 +17,7 @@
   <tbody>
     <% @pets.each do |p| %>
     <tr>
-      <td scope="row"><%= p.name %></td>
+      <td scope="row"><%= p.name + "\s" %>&#<%='x' + @cat_emoji.sample + ';' %></td>
       <td scope="row"><%= p.description %></td>
       <td scope="row" style="text-align:center"><%= link_to 'Show', pet_path(p), class: 'text-success' %></td>
       <td scope="row" style="text-align:center"><%= link_to 'Edit', edit_pet_path(p) %></td>

@@ -4,6 +4,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
+    @cat_emoji = cat_emoji_list
   end
 
   def show
@@ -52,6 +53,7 @@ class PetsController < ApplicationController
 
   def set_pet
     @pet = Pet.find(params[:id])
+    @cat_emoji = cat_emoji_list
   end
 
 end

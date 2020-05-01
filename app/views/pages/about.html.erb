@@ -1,7 +1,15 @@
 <br>
-<h1>This is About Page</h1>
+<h1>About the Cats.</h1>
 <br>
+
+<p style="font-size:100px">
+  <% 3.times do %>
+    <%= render 'emoji' %>
+  <% end %>
+</p>
 
 <p>
   <%= link_to 'Return to Home Page', root_path %>
 </p>
+
+<br>
