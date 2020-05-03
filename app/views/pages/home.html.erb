@@ -1,15 +1,22 @@
-<br>
-<h1>Our Beautiful Home</h1>
-<br>
+<div id="page-content">
+  <div class="container" id="home-container">
+    <div class="jumbotron text-center text-white text-bold">
+      <h1 class="display-3">Home. Kitties. Love. </h1>
+      <p class="lead" style="font-size:100px">
+        <% 3.times do %>
+          <%= render 'emoji' %>
+        <% end %>
+      </p>
+      <hr class="my-4">
+      <p class="font-italic">Welcome to our beautiful home. A paradise for kitties and humans.</p>
 
-<p style="font-size:100px">
-  <% 3.times do %>
-    <%= render 'emoji' %>
-  <% end %>
-</p>
+      <%= link_to "Visit", root_path, class: "btn btn-outline-warning btn-lg", type: "button" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <%= link_to 'Pets list', pets_path %> |
-  <%= link_to 'About', about_path %>
-
-</p>
+<footer id="sticky-footer" class="py-4 bg-dark text-white">
+  <div class="container text-center">
+    <small>Copyright &copy; <%= link_to "Dale Foskey", "https://dalefoskey.com", class: "text-white" %></small>
+  </div>
+</footer>

@@ -1,0 +1,8 @@
+<h1>Cat Blogs for daily Kitty Life</h1>
+
+<% @blogs.each do |blog| %>
+  <div class="container">
+      <%= link_to blog.title, blog_path(blog) %>
+  </div>
+
+<% end %>
