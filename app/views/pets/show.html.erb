@@ -1,15 +1,26 @@
-<br>
-<h1>Showing Pets Details</h1>
-<br>
-<h2><strong>Name:</strong> <%= @pet.name %> &#<%='x' + @cat_emoji.sample + ';' %> </h2>
-<br>
-<h4><strong>Description:</strong> <%= @pet.description%> </h4>
-<br>
-<% if @pet.photo.attached? %>
-  <img src="<%= (url_for(@pet.photo)) %>" class="img-thumbnail w-25" alt="Responsive image">
-<% end %>
-<p>
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Delete', pet_path, method: :delete, data: { confirm: "Are you sure?"}, class: 'text-danger'%> |
-<%= link_to 'Return to Pet List', pets_path %>
-</p>
+<div id="page-content-pet-index">
+  <div class="text-center">
+    <h1>A Kitty Moment</h1>
+  </div>
+
+  <div class="container">
+    <div class="mt-2">
+      <h2><strong>Name:</strong> <%= @pet.name %> &#<%='x' + @cat_emoji.sample + ';' %> </h2>
+      <h4><strong>Moment:</strong> <%= @pet.description%> </h4>
+    </div>
+
+    <div class="row justify-content-center mt-2 mb-2">
+      <% if @pet.photo.attached? %>
+        <%= image_tag url_for(@pet.photo), class: "img-thumbnail w-50 ", alt: "Responsive image" %>
+      <% end %>
+    </div>
+    <div class="col text-center mt-2 mb-2">
+      <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-info mr-5" %>
+      <%= link_to "Delete", pet_path(@pet), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+    </div>
+    <div class="row justify-content-center">
+      <%= link_to 'Return to Kitty Moments', pets_path, class: "text-secondary mb-2 mt-2"%>
+    </div>
+
+  </div>
+</div>
