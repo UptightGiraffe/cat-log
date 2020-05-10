@@ -17,6 +17,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(from_param)
+    # @pet.photo.attach(params[:photo])
     if @pet.save
       flash[:notice] = "Pet \"#{@pet.name}\" was saved sucessfully."
       redirect_to pets_path
@@ -30,7 +31,7 @@ class PetsController < ApplicationController
   end
 
   def update
-
+    # @pet.photo.attach(params[:photo])
     if @pet.update(from_param)
       flash[:notice] = "Pet \"#{@pet.name}\" was updated sucessfully."
       redirect_to pets_path
@@ -48,7 +49,7 @@ class PetsController < ApplicationController
   private
 
   def from_param
-    params.require(:pet).permit(:name, :description)
+    params.require(:pet).permit(:name, :description, :photo)
   end
 
   def set_pet

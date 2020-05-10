@@ -30,6 +30,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 625px;
 }
 
 #sticky-footer {
@@ -38,5 +39,30 @@
 
 #page-content {
   flex: 1 0 auto;
-  background-color: lightgrey;
+  background-color: #f7f3e6;
+}
+
+#page-content2 {
+  flex: 1 0 auto;
+  background-image: asset-url('house.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: .5rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
 }

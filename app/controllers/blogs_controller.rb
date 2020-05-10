@@ -25,8 +25,7 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @blog = Blog.update(from_param)
-    if @blog.save
+    if @blog.update(from_param)
       flash[:notice] = "Blog title \"#{@blog.title}\" was saved sucessfully."
       redirect_to blogs_path
     else

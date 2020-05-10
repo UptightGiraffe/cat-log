@@ -5,6 +5,9 @@
 <br>
 <h4><strong>Description:</strong> <%= @pet.description%> </h4>
 <br>
+<% if @pet.photo.attached? %>
+  <img src="<%= (url_for(@pet.photo)) %>" class="img-thumbnail w-25" alt="Responsive image">
+<% end %>
 <p>
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Delete', pet_path, method: :delete, data: { confirm: "Are you sure?"}, class: 'text-danger'%> |

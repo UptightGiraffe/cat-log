@@ -1,35 +1,24 @@
-<br>
-<div class="container">
-  <h1>Dale and Tai's Cat Logs</h1>
-</div>
-<br>
-<div class="container">
-  <table class="table table-striped">
-    <caption>List of Pets</caption>
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th colspan=3 scope="col" style="text-align:center">Actions</th>
-      </tr>
-    </thead>
-
-    <tbody>
+<div id="page-content2">
+  <h1 class="text-center mt-4">The Kitty Moments</h1>
+  <div class="container mt-4">
+    <div class="card-deck">
       <% @pets.each do |p| %>
-      <tr>
-        <td scope="row"><%= p.name + "\s" %>&#<%='x' + @cat_emoji.sample + ';' %></td>
-        <td scope="row"><%= p.description %></td>
-        <td scope="row" style="text-align:center"><%= link_to 'Show', pet_path(p), class: 'text-success' %></td>
-        <td scope="row" style="text-align:center"><%= link_to 'Edit', edit_pet_path(p) %></td>
-        <td scope="row" style="text-align:center"><%= link_to 'Delete',
-                                                      pet_path(p),
-                                                      method: :delete,
-                                                      data: { confirm: "Are you sure?" },
-                                                      class: 'text-danger'%></td>
-      </tr>
+        <div class="card shadow-lg mb-5 rounded text-white bg-dark">
+            <img class="card-img-top rounded" src="<%= url_for(p.photo) if p.photo.attached? %>" alt="image not added">
+            <div class="card-body">
+              <h4 class="card-title"><%= p.name + "\s" %>&#<%='x' + @cat_emoji.sample + ';' %></h4>
+              <p class="card-text"><%= truncate p.description, length: 100 %></p>
+              <div class="col text-center">
+                <%= link_to "View", pet_path(p), class: "btn btn-warning" %>
+                <%= link_to "Edit", edit_pet_path(p), class: "btn btn-info" %>
+                <%= link_to "Delete", pet_path(p), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+              </div>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated at <%= p.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y %I:%M%p")%> </small>
+            </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-
-  <button type="button" class="btn btn-primary"><%= link_to 'Add a new pet', new_pet_path, class: "text-white"%></button>
+    </div>
+  </div>
 </div>
