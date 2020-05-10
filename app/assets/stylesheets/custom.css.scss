@@ -31,6 +31,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 625px;
+  opacity: 0.9;
 }
 
 #sticky-footer {
@@ -39,10 +40,10 @@
 
 #page-content {
   flex: 1 0 auto;
-  background-color: #f7f3e6;
+  background-color: #f7f6ed;
 }
 
-#page-content2 {
+#page-content-pet-index {
   flex: 1 0 auto;
   background-image: asset-url('house.jpg');
   background-position: center center;

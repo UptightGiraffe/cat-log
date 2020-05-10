@@ -1,10 +1,12 @@
-<div id="page-content2">
+<div id="page-content-pet-index">
   <h1 class="text-center mt-4">The Kitty Moments</h1>
   <div class="container mt-4">
     <div class="card-deck">
-      <% @pets.each do |p| %>
-        <div class="card shadow-lg mb-5 rounded text-white bg-dark">
-            <img class="card-img-top rounded" src="<%= url_for(p.photo) if p.photo.attached? %>" alt="image not added">
+      <% @pets.sort_by {|p| p.updated_at }.reverse.each do |p| %>
+        <div class="card shadow-lg mb-4 rounded text-white bg-dark">
+            <%= link_to pet_path(p) do %>
+              <%= image_tag url_for(p.photo), alt: "image not added", class: "card-img-top rounded" if p.photo.attached? %>
+            <% end %>
             <div class="card-body">
               <h4 class="card-title"><%= p.name + "\s" %>&#<%='x' + @cat_emoji.sample + ';' %></h4>
               <p class="card-text"><%= truncate p.description, length: 100 %></p>
