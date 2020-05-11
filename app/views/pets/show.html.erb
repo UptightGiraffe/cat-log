@@ -11,7 +11,7 @@
 
     <div class="row justify-content-center mt-2 mb-2">
       <% if @pet.photo.attached? %>
-        <%= image_tag url_for(@pet.photo), class: "cover rounded shadow p-2 bg-white", alt: "Responsive image" %>
+        <%= image_tag url_for(@pet.photo), class: "cover rounded shadow p-2", alt: "Responsive image" %>
       <% end %>
     </div>
     <div class="col text-center mt-2 mb-2">
