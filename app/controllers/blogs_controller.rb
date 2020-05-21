@@ -13,6 +13,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(from_param)
+    @blog.user = User.first
     if @blog.save
       flash[:notice] = "Blog title \"#{@blog.title}\" was saved sucessfully."
       redirect_to blogs_path
