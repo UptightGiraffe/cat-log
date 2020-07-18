@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  before_save do
+    self.email = email.downcase
+  end
   has_many :blogs
   validates :user_name,
             presence: true,
@@ -10,5 +13,5 @@ class User < ApplicationRecord
             length: { maximum: 105 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
-
+  has_secure_password
 end
