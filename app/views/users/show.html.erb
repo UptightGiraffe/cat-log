@@ -1,0 +1,6 @@
+<div id="page-content-pet-index">
+  <h1 class="text-center mt-4"><%=@user.user_name%>'s Profile</h1>
+  <%= gravatar_for @user, size: 200 %>
+  <h3 class="text-center mt-4"><%=Blogs</h3>
+  <%= render 'blogs/blog' %>
+</div>
