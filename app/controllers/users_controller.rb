@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(from_param)
     if @user.save
       redirect_to blogs_path, notice: "Welcome to Cat Log, #{@user.user_name}. You have sucessfully signed up ."
+      session[:user_id] = @user.id
     else
       render 'new'
     end
