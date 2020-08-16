@@ -1,5 +1,8 @@
 <div id="page-content-pet-index">
   <h1 class="text-center mt-4">The Kitty Moments</h1>
+  <div class="apple_pagination">
+      <%= will_paginate @pets, :container => false %>
+  </div>
   <div class="container mt-4">
     <div class="card-deck">
       <% @pets.sort_by {|p| p.updated_at }.reverse.each do |p| %>
@@ -22,5 +25,9 @@
         </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="apple_pagination">
+      <%= will_paginate @pets, :container => false %>
   </div>
 </div>

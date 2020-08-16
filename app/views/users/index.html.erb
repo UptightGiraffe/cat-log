@@ -1,0 +1,10 @@
+<div id="page-content-pet-index">
+  <h1 class="text-center mt-4">Cat Loggers</h1>
+  <div class="apple_pagination">
+      <%= will_paginate @users, :container => false %>
+  </div>
+  <%= render 'logger' %>
+  <div class="apple_pagination">
+      <%= will_paginate @users, :container => false %>
+  </div>
+</div>

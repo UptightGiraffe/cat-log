@@ -3,7 +3,7 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pets = Pet.all
+    @pets = Pet.paginate(page: params[:page], per_page: 4)
     @cat_emoji = cat_emoji_list
   end
 

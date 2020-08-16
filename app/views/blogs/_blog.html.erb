@@ -4,7 +4,9 @@
       <div class="col-8 mt-3">
         <div class="card text-center shadow mb-5 bg-white rounded">
           <div class="card-header font-italic">
-            <%= ('by ' + blog.user.user_name) if blog.user %>
+            <% if blog.user %>
+              by <%= link_to blog.user.user_name, user_path(blog.user) %>
+            <% end %>
           </div>
           <div class="card-body">
             <h3 class="card-title"><%= link_to blog.title, blog_path(blog), class: "text-warning" %></h3>

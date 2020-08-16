@@ -1,6 +1,15 @@
 <div id="page-content-pet-index">
   <h1 class="text-center mt-4"><%=@user.user_name%>'s Profile</h1>
   <%= gravatar_for @user, size: 200 %>
-  <h3 class="text-center mt-4"><%=Blogs</h3>
+  <div class="text-center mt-4">
+    <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+  </div>
+  <h3 class="text-center mt-4">Blogs</h3>
+  <div class="apple_pagination">
+      <%= will_paginate @blogs, :container => false %>
+  </div>
   <%= render 'blogs/blog' %>
+  <div class="apple_pagination">
+      <%= will_paginate @blogs, :container => false %>
+  </div>
 </div>

@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @blogs = @user.blogs
+    @blogs = @user.blogs.paginate(page: params[:page], per_page: 3)
+  end
+
+  def index
+    @users = User.paginate(page: params[:page], per_page: 3)
   end
 
   def create
@@ -22,7 +26,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(from_param)
-      redirect_to blogs_path, notice: "User \"#{@user.user_name}\" sucessfully updated."
+      redirect_to @user, notice: "User \"#{@user.user_name}\" sucessfully updated."
     else
       render 'edit'
     end

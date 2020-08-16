@@ -1,4 +1,10 @@
 <div id="page-content-pet-index">
   <h1 class="text-center mt-4">Cat Blogs for Kitty Life</h1>
+  <div class="apple_pagination">
+      <%= will_paginate @blogs, :container => false %>
+  </div>
   <%= render 'blog' %>
+  <div class="apple_pagination">
+      <%= will_paginate @blogs, :container => false %>
+  </div>
 </div>
