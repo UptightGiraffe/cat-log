@@ -30,7 +30,7 @@
              <%= link_to "Write a new blog", new_blog_path, class: "dropdown-item"  %>
              <%= link_to "Add a new Kitty Moment", new_pet_path, class: "dropdown-item"  %>
              <div class="dropdown-divider"></div>
-             <a class="dropdown-item" href="#">placeholder</a>
+             <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item text-info" %>
            </div>
          </li>
        <% else %>

@@ -8,13 +8,4 @@ module ApplicationHelper
     image_tag image_src, alt: user.user_name, class: "mt-4 rounded mx-auto d-block shadow"
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    !!current_user
-  end
-
-
 end
