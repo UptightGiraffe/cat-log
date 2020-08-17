@@ -28,8 +28,9 @@
              <%= link_to "Add a new Kitty Moment", new_pet_path, class: "dropdown-item"  %>
              <div class="dropdown-divider"></div>
              <%= link_to "Edit #{current_user.user_name}'s profile", edit_user_path(current_user), class: "dropdown-item text-info" %>
+             <%= link_to "Delete #{current_user.user_name}'s profile", current_user, method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item text-danger" %>
              <div class="dropdown-divider"></div>
-             <%= link_to "Log Out", login_path, method: :delete, class: "dropdown-item text-danger" %>
+             <%= link_to "Log Out", login_path, method: :delete, class: "dropdown-item text-warning" %>
            </div>
          </li>
        <% else %>

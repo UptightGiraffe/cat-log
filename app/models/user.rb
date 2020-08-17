@@ -2,7 +2,7 @@ class User < ApplicationRecord
   before_save do
     self.email = email.downcase
   end
-  has_many :blogs
+  has_many :blogs, dependent: :destroy
   validates :user_name,
             presence: true,
             length: { minimum: 3, maximum: 25 },
