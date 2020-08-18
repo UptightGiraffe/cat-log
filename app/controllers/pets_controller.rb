@@ -1,6 +1,8 @@
 class PetsController < ApplicationController
 
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @pets = Pet.paginate(page: params[:page], per_page: 3)
@@ -17,7 +19,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(from_param)
-    # @pet.photo.attach(params[:photo])
+    @pet.user = current_user
     if @pet.save
       flash[:notice] = "Pet \"#{@pet.name}\" was saved sucessfully."
       redirect_to pets_path
@@ -33,7 +35,7 @@ class PetsController < ApplicationController
   def update
     # @pet.photo.attach(params[:photo])
     if @pet.update(from_param)
-      flash[:notice] = "Pet \"#{@pet.name}\" was updated sucessfully."
+      flash[:notice] = "Kitty Moment \"#{@pet.name}\" was updated sucessfully."
       redirect_to pets_path
     else
       render 'edit'
@@ -55,6 +57,13 @@ class PetsController < ApplicationController
   def set_pet
     @pet = Pet.find(params[:id])
     @cat_emoji = cat_emoji_list
+  end
+
+  def require_same_user
+    if current_user != @pet.user && !current_user.admin?
+      flash[:alert] = "You can only edit or delete your own kitty moment!"
+      redirect_to @pet
+    end
   end
 
 end

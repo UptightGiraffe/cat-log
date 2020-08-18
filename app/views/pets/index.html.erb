@@ -15,12 +15,14 @@
               <p class="card-text"><%= truncate p.description, length: 100 %></p>
               <div class="col text-center">
                 <%= link_to "View", pet_path(p), class: "btn btn-warning" %>
-                <%= link_to "Edit", edit_pet_path(p), class: "btn btn-info" %>
-                <%= link_to "Delete", pet_path(p), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+                <% if logged_in? && (p.user == current_user || current_user.admin?) %>
+                  <%= link_to "Edit", edit_pet_path(p), class: "btn btn-info" %>
+                  <%= link_to "Delete", pet_path(p), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+                <% end %>
               </div>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated at <%= p.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y %I:%M%p")%> </small>
+              <small class="text-muted">Last updated at <%= p.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y %I:%M%p") + " by "%><%= p.user ? link_to(p.user.user_name, p.user) : "admin" %></small>
             </div>
         </div>
       <% end %>

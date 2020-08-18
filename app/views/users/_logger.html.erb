@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <h3 class="card-title"><%= link_to gravatar_for(user, size: 150), user %></h3>
-            <p class="card-text"><%= pluralize user.blogs.count, "blog" %></p>
+            <p class="card-text"><%= pluralize user.blogs.count, "blog" %> and <%= pluralize user.pets.count, "moment" %></p>
             <%= link_to "View profile", user, class: "btn btn-outline-success" %>
             <% if logged_in? %>
               <% if user == current_user %>

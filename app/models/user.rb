@@ -3,6 +3,7 @@ class User < ApplicationRecord
     self.email = email.downcase
   end
   has_many :blogs, dependent: :destroy
+  has_many :pets, dependent: :destroy
   validates :user_name,
             presence: true,
             length: { minimum: 3, maximum: 25 },

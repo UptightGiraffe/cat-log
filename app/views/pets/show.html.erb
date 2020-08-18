@@ -1,13 +1,11 @@
 <div id="page-content-pet-index">
-  <div class="text-center">
-    <h1>A Kitty Moment</h1>
+  <div class="text-center mt-4">
+    <h1 display-1><%= @pet.name %> &#<%='x' + @cat_emoji.sample + ';' %></h1>
+    <h3 display-3><%= @pet.description%> </h3>
+    <small>by <%= (link_to @pet.user.user_name, @pet.user, class: "text-info font-italic") if @pet.user %></small>
   </div>
 
   <div class="container">
-    <div class="mt-2">
-      <h2><strong>Name:</strong> <%= @pet.name %> &#<%='x' + @cat_emoji.sample + ';' %> </h2>
-      <h4><strong>Moment:</strong> <%= @pet.description%> </h4>
-    </div>
 
     <div class="row justify-content-center mt-2 mb-2">
       <% if @pet.photo.attached? %>
@@ -15,8 +13,10 @@
       <% end %>
     </div>
     <div class="col text-center mt-2 mb-2">
-      <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-info mr-5" %>
-      <%= link_to "Delete", pet_path(@pet), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+      <% if logged_in? && (@pet.user == current_user || current_user.admin?) %>
+        <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-info mr-5" %>
+        <%= link_to "Delete", pet_path(@pet), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+      <% end %>
     </div>
     <div class="row justify-content-center">
       <%= link_to 'Return to Kitty Moments', pets_path, class: "text-secondary mb-2 mt-2"%>
