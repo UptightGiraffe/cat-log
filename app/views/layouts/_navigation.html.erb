@@ -17,7 +17,7 @@
        </li>
        <% if logged_in? %>
          <li class="nav-item">
-           <%= link_to current_user.user_name + "\'s Profile", current_user, class: "nav-link" %>
+           <%= link_to (current_user.admin? ? "[Admin]" : "") + current_user.user_name + "\'s Profile", current_user, class: "nav-link" %>
          </li>
          <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
