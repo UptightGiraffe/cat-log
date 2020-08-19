@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def new
-    @user = User.new
+    if !logged_in?
+      @user = User.new
+    else
+      flash[:alert] = "You have already signed in."
+      redirect_to root_path
+    end
   end
 
   def show
