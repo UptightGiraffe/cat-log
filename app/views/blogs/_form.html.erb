@@ -23,7 +23,7 @@
             <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
               <%= b.label do %>
                 <%= b.check_box %>
-                <span><%= b.text %></span>
+                <span class="my_checkbox mr-1"><%= b.text %></span>
               <% end %>
             <% end %>
           </div>

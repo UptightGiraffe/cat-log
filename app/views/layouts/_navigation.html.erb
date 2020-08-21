@@ -15,19 +15,9 @@
        <li class="nav-item">
          <%= link_to "Kitties", pets_path, class: "nav-link" %>
        </li>
-       <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Categories
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <%= link_to "Show Categories", categories_path, class: "dropdown-item" %>
-           <% if logged_in? && current_user.admin? %>
-            <div class="dropdown-divider"></div>
-            <%= link_to "Create new Category", new_category_path, class: "dropdown-item" %>
-           <% end %>
-         </div>
-        </li>
-
+       <li class="nav-item">
+         <%= link_to "Categories", categories_path, class: "nav-link" %>
+       </li>
        <% if logged_in? %>
          <li class="nav-item">
            <%= link_to (current_user.admin? ? "[Admin]" : "") + current_user.user_name + "\'s Profile", current_user, class: "nav-link" %>
@@ -39,6 +29,9 @@
            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
              <%= link_to "Write a new blog", new_blog_path, class: "dropdown-item"  %>
              <%= link_to "Add a new Kitty Moment", new_pet_path, class: "dropdown-item"  %>
+             <% if current_user.admin? %>
+              <%= link_to "Create new Category", new_category_path, class: "dropdown-item" %>
+             <% end %>
              <div class="dropdown-divider"></div>
              <%= link_to "Edit #{current_user.user_name}'s profile", edit_user_path(current_user), class: "dropdown-item text-info" %>
              <%= link_to "Delete #{current_user.user_name}'s profile", current_user, method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item text-danger" %>

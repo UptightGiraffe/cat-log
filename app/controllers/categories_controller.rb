@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category
+    @blogs = @category.blogs.paginate(page: params[:page], per_page: 4)
   end
 
   def create
@@ -22,6 +22,17 @@ class CategoriesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def update
+    if @category.update(from_param)
+      redirect_to @category, notice: "Category \"#{@category.name}\" sucessfully updated."
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
   end
 
   private

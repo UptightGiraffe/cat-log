@@ -1,3 +1,16 @@
 <div id="page-content-pet-index">
-  <h1 class="text-center mt-4">Category : <%= @category.name %></h1>
+  <h1 class="text-center mt-4">Category : <%= @category.name.upcase %></h1>
+  <div class="text-center mt-4">
+    <% if logged_in? && current_user.admin? %>
+      <%= link_to "Edit category", edit_category_path(@category), class: "btn btn-info" %>
+    <% end %>
+  </div>
+  <h3 class="text-center mt-5">Blogs</h3>
+  <div class="apple_pagination">
+      <%= will_paginate @blogs, :container => false %>
+  </div>
+  <%= render 'blogs/blog' %>
+  <div class="apple_pagination">
+      <%= will_paginate @blogs, :container => false %>
+  </div>
 </div>

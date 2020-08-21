@@ -102,17 +102,29 @@ body {
 }
 
 #category_checkbox span {
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: bold;
+  font-style: italic;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
   display: inline-block;
-  padding: 0.7em;
   text-transform: uppercase;
   border: 2px solid #5bc0de;
-  border-radius: 0.4em;
+  border-radius: 1em;
   color: #5bc0de;
 }
 
 #category_checkbox input[type="checkbox"]:checked + span {
   background-color: #5bc0de;
   color: white;
+}
+
+.my_checkbox:hover {
+  background-color: white; opacity:0.8;
+}
+
+.badge-info {
+  text-transform: uppercase;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em
 }

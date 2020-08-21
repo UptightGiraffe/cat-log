@@ -1,4 +1,7 @@
 class Category < ApplicationRecord
+  before_save do
+    self.name = name.upcase
+  end
   has_many :blog_categories
   has_many :blogs, through: :blog_categories
   validates :name, presence: true, length: { minimum: 3, maximum: 25}

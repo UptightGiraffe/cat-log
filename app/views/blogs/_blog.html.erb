@@ -7,6 +7,11 @@
             <% if blog.user %>
               by <%= link_to blog.user.user_name, user_path(blog.user) %>
             <% end %>
+            <% if blog.categories.any? %>
+              <div class="mt-2">
+                <%= render blog.categories %>
+              </div>
+            <% end %>
           </div>
           <div class="card-body">
             <h3 class="card-title"><%= link_to blog.title, blog_path(blog), class: "text-warning" %></h3>
