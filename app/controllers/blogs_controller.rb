@@ -15,7 +15,6 @@ class BlogsController < ApplicationController
   end
 
   def create
-    byebug
     @blog = Blog.new(from_param)
     @blog.user = current_user
     if @blog.save
