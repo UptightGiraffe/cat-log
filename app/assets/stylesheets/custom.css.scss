@@ -96,3 +96,23 @@ body {
     color: black; }
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
+
+#category_checkbox input[type="checkbox"] {
+  display: none;
+}
+
+#category_checkbox span {
+  font-size: 0.9em;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.7em;
+  text-transform: uppercase;
+  border: 2px solid #5bc0de;
+  border-radius: 0.4em;
+  color: #5bc0de;
+}
+
+#category_checkbox input[type="checkbox"]:checked + span {
+  background-color: #5bc0de;
+  color: white;
+}

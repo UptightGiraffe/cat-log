@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
   end
 
   def create
+    byebug
     @blog = Blog.new(from_param)
     @blog.user = current_user
     if @blog.save
@@ -50,7 +51,7 @@ class BlogsController < ApplicationController
   end
 
   def from_param
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, category_ids: [])
   end
 
   def require_same_user

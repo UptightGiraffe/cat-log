@@ -17,6 +17,18 @@
           </div>
         </div>
 
+        <div class="form-group row">
+          <%= f.label :category, "Blog Category\n(can be empty)", class: "col-2 col-form-label text-light font-weight-bold" %>
+          <div class="col-10" id="category_checkbox">
+            <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+              <%= b.label do %>
+                <%= b.check_box %>
+                <span><%= b.text %></span>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
         <div class="form-group row justify-content-center">
           <%= f.submit class: "btn btn-outline-light btn-lg" %>
         </div>
